@@ -5,18 +5,13 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-import environ
 
-
-env = environ.Env()
-
-environ.Env.read_env()
 
 
 
 SECRET_KEY = 'django-insecure-r3wc#7wd^yjhre3hv3we3d_x*3%=z!*#i9^7!t^xb94j-=ex!1'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -71,31 +66,13 @@ WSGI_APPLICATION = 'elevate.wsgi.application'
 
 # SQLite database
 
-'''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-'''
-
-
-# Render PostgreSQL database (Live)
-
-
-import dj_database_url
-
-DATABASES = {
-
-    'default': dj_database_url.parse(env('DATABASE_URL'))
-
-}
-
-
-
-
-
 
 
 
